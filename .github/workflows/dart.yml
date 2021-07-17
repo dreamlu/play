@@ -11,8 +11,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Upload APK
-    - run: pwd
-    - run: ls
-    - run: curl -LJO https://github.com/wobangkj/txgc-app/releases/download/v1.1.5/app-release.apk
-    - run: curl -F 'file="app-release.apk"' -F '_api_key=${{ secrets.PGYER_API_KEY }}' -X POST https://www.pgyer.com/apiv2/app/upload
+      run: |
+        pwd
+        ls
+        curl -LJO https://github.com/wobangkj/txgc-app/releases/download/v1.1.5/app-release.apk
+        curl -F 'file="app-release.apk"' -F '_api_key=${{ secrets.PGYER_API_KEY }}' -X POST https://www.pgyer.com/apiv2/app/upload
 
