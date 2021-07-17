@@ -13,7 +13,7 @@ jobs:
     - name: Upload APK
       run: |
         pwd
-        curl -LJO https://github.com/wobangkj/txgc-app/releases/download/v1.1.5/app-release.apk
+        wget https://github.com/dreamlu/play/releases/download/apk/app-release.apk
         ls
-        curl -F 'file="app-release.apk"' -F '_api_key=${{ secrets.PGYER_API_KEY }}' -X POST https://www.pgyer.com/apiv2/app/upload
+        curl -F 'file=@app-release.apk' -F '_api_key=${{ secrets.PGYER_API_KEY }}' -X POST https://www.pgyer.com/apiv2/app/upload
 
