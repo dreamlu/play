@@ -17,13 +17,12 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: '1.22.6'
-    - run: cd txgc-app
-    - run: flutter pub get
-    - run: flutter build apk
+#    - run: cd txgc-app
+    - run: cd txgc-app && flutter pub get && flutter build apk
     - name: Create a Release APK
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+        artifacts: "txgc-app/build/app/outputs/flutter-apk/app-release.apk"
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: curl -F 'file="build/app/outputs/flutter-apk/app-release.apk"' -F '_api_key=${{secrets.PGYER_API_KEY}}' https://www.pgyer.com/apiv2/app/upload
+    - run: curl -F 'file="txgc-app/build/app/outputs/flutter-apk/app-release.apk"' -F '_api_key=${{secrets.PGYER_API_KEY}}' https://www.pgyer.com/apiv2/app/upload
 
